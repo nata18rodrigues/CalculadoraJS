@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type='text/css' media="screen" href="css/styles.css">
+    <title>Calculadora</title>
+</head>
+<body>
+ 
+    <div class="calculadora">
+        <div class="screen" id="screen">
+        </div>
+
+        <div class="line-1" id="line-1">
+            <input type="button" value=" " onclick="" id="bt-7">
+            <input type="button" value=" " onclick="" id="bt-8">
+            <input type="button" value=" " onclick="" id="bt-9">
+            <input type="button" value="/" onclick="clique('/')" id="bt-7">
+        </div>
+
+        <div class="line-2" id="line-2">
+            <input type="button" value="7" onclick="clique(7)" id="bt-7">
+            <input type="button" value="8" onclick="clique(8)" id="bt-8">
+            <input type="button" value="9" onclick="clique(9)" id="bt-9">
+            <input type="button" value="*" onclick="clique('*')" id="bt-7">
+        </div>
+
+        <div class="line-3" id="line-3">
+            <input type="button" value="4" onclick="clique(4)" id="bt-4">
+            <input type="button" value="5" onclick="clique(5)" id="bt-5">
+            <input type="button" value="6" onclick="clique(6)" id="bt-6">
+            <input type="button" value="-" onclick="clique('-')" id="bt-7">
+        </div>
+
+        <div class="line-4" id="line-4">
+            <input type="button" value="1" onclick="clique(1)" id="bt-1">
+            <input type="button" value="2" onclick="clique(2)" id="bt-2">
+            <input type="button" value="3" onclick="clique(3)" id="bt-3">
+            <input type="button" value="+" onclick="clique('+')" id="bt-7">
+        </div>
+
+        <div class="line-5" id="line-5">
+            <input type="button" value="<=" onclick="clique('<=')" id="bt-7">
+            <input type="button" value="0" onclick="clique(0)" id="bt-0">
+            <input type="button" value="," onclick="clique(',')" id="bt-9">
+            <input type="button" value="=" onclick="clique('=')" id="bt-7">
+        </div>
+    </div>
+
+    <script>
+        var visor_pergunta = document.createElement("input")
+        visor_pergunta.type = "text"
+        visor_pergunta.id = "calculo"
+        visor_pergunta.value = "0"
+        visor_pergunta.style.background = "#efefef"
+        visor_pergunta.style.width = "265px"
+        visor_pergunta.style.height = "30px"
+
+        var visor_resposta = document.createElement("input")
+        visor_resposta.type = "text2"
+        visor_resposta.id = "resposta"
+        visor_resposta.value = ""
+        visor_resposta.style.background = "#efefef"
+        visor_resposta.style.width = "265px"
+        visor_resposta.style.height = "30px"
+
+        var screen = document.getElementById("screen")
+        screen.appendChild(visor_pergunta)
+        screen.appendChild(visor_resposta)
+
+        function clique(num) {
+            const calculo = document.getElementById("calculo")
+            
+            if (num != "=" && num != "<="){
+                if (calculo.value == "0"){
+                    text = num
+                    calculo.value = text
+                } else {
+
+                    text = calculo.value + num
+                    calculo.value = text
+                }
+            }
+
+            if (num == "<=") {
+                text = calculo.value
+                calculo.value = text.substr(0, text.length - 1);
+            }
+
+            if (num == "=") {
+               const resposta = document.getElementById("resposta")
+               const teste = eval(calculo.value)
+               console.log(teste)
+               resposta.value = teste || 0
+            }
+
+        }
+    </script>    
+</body>
+</html>

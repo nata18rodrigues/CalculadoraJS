@@ -1,0 +1,36 @@
+.calculadora {
+    height: 400px;
+    width: 310px;
+    border-style: solid;
+    border-color: black;
+    background: #efefef;
+}
+
+.line-1, .line-2, .line-3, .line-4, .line-5 {
+    margin: 0px 8px;
+}
+
+input[type=button] {
+    background-color: #fff;  
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 3px;
+}
+
+
+#calculo {
+    margin: 16px 15px 0;
+    border-color: #efefef;
+}
+
+#resposta {
+    margin: 0px 15px;
+    border-color: #efefef;
+}
